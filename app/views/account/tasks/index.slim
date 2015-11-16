@@ -1,0 +1,17 @@
+h3 All tasks
+= link_to 'New task', new_account_task_path, class: 'btn btn-default btn-lg'
+.panel.panel-default
+  table.table
+    tr
+      th Name
+      th State
+      th Action
+    - @tasks.each do |task|
+      tr
+        td = task.name
+        td = task.aasm_state
+        td
+          - if task.user == current_user
+            = link_to edit_account_task_path(task) do
+              button.btn.btn-default
+                span.glyphicon.glyphicon-pencil
