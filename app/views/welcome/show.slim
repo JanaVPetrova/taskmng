@@ -1,0 +1,9 @@
+.container
+  .row
+    h3
+      - if current_user
+        = link_to 'See you account', account_root_path, class: 'btn btn-default btn-lg'
+        = link_to 'Sign out', sessions_path, method: :delete, class: 'btn btn-default btn-lg'
+      - else
+        .col-md-offset-5
+          = link_to 'Sign in', new_sessions_path, class: 'btn btn-default btn-lg'
