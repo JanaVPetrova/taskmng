@@ -4,6 +4,7 @@
       = simple_form_for [:account, @task] do |f|
         = f.input :name
         = f.input :description
-        - @task.aasm.events.each do |event|
-          = link_to event.name, task_event_path(event.name), method: :put, class: 'btn btn-default'
+        - if @task.persisted?
+          - @task.aasm.events.each do |event|
+            = link_to event.name, task_event_path(event.name), method: :put, class: 'btn btn-default'
         = f.button :submit

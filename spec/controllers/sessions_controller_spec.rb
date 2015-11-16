@@ -6,7 +6,7 @@ RSpec.describe SessionsController do
   end
 
   describe '#create' do
-    before { post :create, session: params }
+    before { post :create, sign_in_form: params }
 
     context 'when params are invalid' do
       let(:params) { { email: generate(:email), password: generate(:string) } }
